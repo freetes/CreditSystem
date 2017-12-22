@@ -22,6 +22,7 @@ Student.find((err, students)=>{
         password: 1,
         name: '李爽',
         gender: '男',
+        faculty: '数学与计算机学院',
         major: '计算机大类1602班'
     }).save();
 
@@ -30,6 +31,7 @@ Student.find((err, students)=>{
         password: 1,
         name: '马珩',
         gender: '男',
+        faculty: '数学与计算机学院',
         major: '计算机大类1602班'
     }).save();
 
@@ -38,6 +40,7 @@ Student.find((err, students)=>{
         password: 1,
         name: '王杰',
         gender: '女',
+        faculty: '数学与计算机学院',
         major: '计算机大类1601班'
     }).save();
 });

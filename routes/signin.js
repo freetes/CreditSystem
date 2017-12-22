@@ -24,7 +24,7 @@ router.post('/', (req, res)=>{
     else{
       res.render('signin',{
         title: "登录页面",
-        message:"账户与密码不匹配",
+        message:"用户名或密码不正确，请重新输入！",
       });
     }
   })
