@@ -1,0 +1,59 @@
+.bg {
+  background: #3cb371;
+  }
+  h1 {
+  position: absolute;
+  right: 350px;
+  top: 0px;
+  }
+  .box{
+  width: 800px;
+  height: 400px;
+  background: #98fb98;
+  background-repeat: no-repeat;
+  position: absolute;
+  right: 300px;
+  top: 100px;
+  }
+  .msg {
+  color:red;
+  position: absolute;
+  right: 420px;
+  top: 120px;
+  }
+  .username {
+  width: 350px;
+  height: 35px;
+  position: absolute;
+  right: 200px;
+  top: 150px;
+  }
+  .nameChina {
+  color: #336666;
+  position: absolute;
+  right: 550px;
+  top: 130px;
+  }
+  .password {
+  width: 350px;
+  height: 35px;
+  position: absolute;
+  right: 200px;
+  top: 200px;
+  }
+  .passwordChina {
+  color: #336666;
+  position: absolute;
+  right: 550px;
+  top: 180px;
+  }
+  .submit {
+  width: 100px;
+  height: 40px;
+  background: #f0ffff;
+  font-size: 18px;
+  color: #336666;
+  position: absolute;
+  right: 200px;
+  top: 270px;
+  }

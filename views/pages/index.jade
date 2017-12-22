@@ -1,0 +1,125 @@
+extends ../layout
+link(rel="stylesheet", href="/css/index.css")
+block content
+  html
+  head
+    title
+      | 主页
+    style(type='text/css').
+      .box {
+      width: 800px;
+      height: 450px;
+      background: #3cb371
+      }
+      h1 {
+      color: #336666;
+      position: absolute;
+      right: 1000px;
+      top: 0px;
+      }
+      .sbox {
+      width: 900px;
+      height: 550px;
+      background: #98fb98 center;
+      position: absolute;
+      right: 235px;
+      top: 70px;
+      }
+      .sbox1 {
+      width: 850px;
+      height: 50px;
+      background:#ffffff;
+      position: absolute;
+      right: 30px;
+      top: 15px;
+      }
+      h3 {
+      width: 600px;
+      color: #008080;
+      position: absolute;
+      right: 240px;
+      top: -7px;
+      }
+      .quit {
+      width: 60px;
+      height: 35px;
+      background: #f0ffff;
+      position: absolute;
+      right: 20px;
+      top: 10px;
+      }
+      .sbox2 {
+      width: 550px;
+      height: 430px;
+      background:#ffffff;
+      position: absolute;
+      right: 325px;
+      top: 90px;
+      }
+      .sbox2_1 {
+      width: 520px;
+      height: 430px;
+      background:#ffffff;
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      }
+      h4 {
+      width: 400px;
+      height: 50px;
+      color: #008080;
+      }
+      .sbox3 {
+      width: 270px;
+      height: 430px;
+      background:#ffffff;
+      position: absolute;
+      right: 30px;
+      top: 90px;
+      }
+      .sheet {
+      width: 250px;
+      height: 70px;
+      font-size: 20px;
+      background: #f0ffff;
+      position: absolute;
+      right: 13px;
+      top: 20px;
+      }
+      .alter {
+      width: 250px;
+      height: 70px;
+      font-size: 20px;
+      background: #f0ffff;
+      position: absolute;
+      right: 13px;
+      top: 110px;
+      }
+      .add {
+      width: 250px;
+      height: 70px;
+      font-size: 20px;
+      background: #f0ffff;
+      position: absolute;
+      right: 13px;
+      top: 200px;
+      }
+  body.box
+    h1= title
+    .sbox
+      .sbox1
+        h3 当前用户>>王杰
+        button.quit 注销
+      .sbox2
+        .sbox2_1
+          h4 姓名：
+          h4 性别：
+          h4 入学年度：
+          h4 学号：
+          h4 专业：
+          h4 院系：
+      .sbox3
+        button.sheet 素质拓展学分表
+        button.alter 修改入口
+        button.add 添加入口
+

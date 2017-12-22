@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+  link(rel='stylesheet', href='/css/style.css')
+  link(rel="stylesheet", href="/css/signin.css") 
+  
+  body.bg
+    .box
+      h1= title
+      .msg= message
+      .row
+        form(action='/', method='POST')
+          h2.nameChina 账户：
+          input.username(type='text', name='username')
+          h2.passwordChina 密码：
+          input.password(type='password', name='userpassword')
+          button.submit 提交
