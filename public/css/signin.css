@@ -6,6 +6,8 @@ body{
   background-image: url("/imgs/background.png")
 }
 .title{
+  color:#286090;
+  font-size: 2em;
   margin: 0;
   line-height: 100px;
 }
