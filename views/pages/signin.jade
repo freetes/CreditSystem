@@ -1,17 +1,40 @@
 extends ../layout
 
 block content
-  link(rel='stylesheet', href='/css/style.css')
-  link(rel="stylesheet", href="/css/signin.css") 
-  
-  body.bg
-    .box
-      h1= title
-      .msg= message
-      .row
-        form(action='/signin', method='POST')
-          h2.nameChina 账户：
-          input.username(type='text', name='username')
-          h2.passwordChina 密码：
-          input.password(type='password', name='userpassword')
-          button.submit 提交
+  link(rel="stylesheet", href="/css/signin.css")
+
+  body
+    .container-fluid.mainLogo
+      .container
+        .col-md-8.col-xs-0
+          .col-md-3.col-xs-4
+            img.img-responsive(src="/imgs/logo.png")
+          .col-md-9.col-xs-8
+            h3.text-left.title 武汉轻工大学素质学分管理系统
+        .col-md-4.col-xs-0
+          img.img-responsive.gif(src="/imgs/xiaoxun.gif")
+    br
+    .container
+      .row.mainDiv
+        .col-md-8.col-sm-0
+          img.img-responsive(src="/imgs/dream.jpg")
+        .col-md-4.col-xs-12
+          h3= title
+          br
+          form.form-horizontal(action='/signin', method='POST')
+            .input-group
+              .input-group-addon
+                span.glyphicon.glyphicon-user(aria-hidden="true")
+              input.form-control(type='text', name='username', placeholder="用户名")
+            br
+            .input-group
+              .input-group-addon
+                span.glyphicon.glyphicon-magnet(aria-hidden="true")
+              input.form-control(type='text', name='userpassword', placeholder="密码")
+
+            .col-md-12.col-xs-12.text-right(style="color:red")= message
+            br
+            .form-group
+              .col-md-12.col-xs-12
+                button.btn.btn-primary.btn-block.btn-signin 提交
+          

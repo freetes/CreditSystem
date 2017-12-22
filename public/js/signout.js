@@ -1,5 +1,5 @@
 
-$(".quit").click(()=>{
+$(".btn-signin").click(()=>{
   $.ajax({
     type: 'POST',
     url: '/',
