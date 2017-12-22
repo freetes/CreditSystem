@@ -1,19 +1,8 @@
 extends ../layout
 
 block content
-    style.
-      .box{
-      width: 900px;
-      height: 550px;
-      position: absolute;
-      right: 235px;
-      top: 220px;
-      }
-      .title2 {
-      position: absolute;
-      right: 600px;
-      top: -90px;
-      }
+  link(rel="stylesheet", href="/css/signin.css")
+  
   body
     .container-fluid.mainLogo
       .container
@@ -21,30 +10,31 @@ block content
           .col-md-3.col-xs-4
             img.img-responsive(src='/imgs/logo.png')
           .col-md-9.col-xs-8
-            h3.text-left.title 武汉轻工大学素质学分管理系统
+            h3.text-left.title=title
         .col-md-4.col-xs-0
           img.img-responsive.gif(src='/imgs/xiaoxun.gif')
     br
-    .box
-      h2.title2 个人素质拓展学分添加
-      .input-group.input-group-lg
-        span#sizing-addon2.input-group-addon 申请日期
-        input.form-control(type='text', placeholder='date', aria-describedby='sizing-addon2')
-      br
-      .input-group.input-group-lg
-        span#sizing-addon2.input-group-addon 项目分类
-        input.form-control(type='text', placeholder='item_class', aria-describedby='sizing-addon2')
-      br
-      .input-group.input-group-lg
-        span#sizing-addon2.input-group-addon 项目名
-        input.form-control(type='text', placeholder='item_name', aria-describedby='sizing-addon2')
-      br
-      .input-group.input-group-lg
-        span#sizing-addon2.input-group-addon 申请分值
-        input.form-control(type='text', placeholder='apply_value', aria-describedby='sizing-addon2')
-      br
-      .input-group.input-group-lg
-        span#sizing-addon2.input-group-addon 备注
-        input.form-control(type='text', placeholder='remarks', aria-describedby='sizing-addon2')
-      br
-      button.btn.btn-primary(type='button') 录入
+    .container
+      .row
+        form(action="/add", method="POST")
+          .input-group.input-group-lg
+            span.input-group-addon 申请日期
+            input.form-control(type='text', name="date", placeholder='date', aria-describedby='sizing-addon2')
+          br
+          .input-group.input-group-lg
+            span.input-group-addon 项目分类
+            input.form-control(type='text', name="kind", placeholder='item_class', aria-describedby='sizing-addon2')
+          br
+          .input-group.input-group-lg
+            span.input-group-addon 项目名
+            input.form-control(type='text', name="name", placeholder='item_name', aria-describedby='sizing-addon2')
+          br
+          .input-group.input-group-lg
+            span.input-group-addon 申请分值
+            input.form-control(type='text', name="applyPoint", placeholder='apply_value', aria-describedby='sizing-addon2')
+          br
+          .input-group.input-group-lg
+            span.input-group-addon 备注
+            input.form-control(type='text', name="remark", placeholder='remarks', aria-describedby='sizing-addon2')
+          br
+          button.btn.btn-primary 录入

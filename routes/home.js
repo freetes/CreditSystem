@@ -14,6 +14,7 @@ mongoose.connect('mongodb://localhost/creditSystem', err=>{
 const Student = Models.Student;
 const Project = Models.Project;
 
+//创建登录账号
 Student.find((err, students)=>{
     if(students.length) return;
 
@@ -48,16 +49,14 @@ Student.find((err, students)=>{
 /* GET home page. */
 router.get('/', function(req, res) {
     if(req.session.username == undefined){
-        res.redirect('/signin');
+        return res.redirect(303, '/signin');
     }
-    else{
-        Student.find({'id': req.session.username}, (err, student)=>{
-            res.render('index', { 
-                title: '个人主页',
-                user: student[0]
-            });
-        })
-    }
+    Student.find({'id': req.session.username}, (err, student)=>{
+        res.render('index', { 
+            title: '个人主页',
+            user: student[0]
+        });
+    });
 });
 
 //处理注销
@@ -67,6 +66,46 @@ router.post('/', (req, res)=>{
     res.json(true);
 })
 
+//处理新增
+router.get('/add', (req, res)=>{
+    if(req.session.username == undefined){
+        return res.redirect(303, '/signin');
+    }
+    Student.find({'id': req.session.username}, (err, student)=>{
+        res.render('add', { 
+            title: '个人素质拓展学分添加',
+            user: student[0]
+        });
+    });
+})
+router.post('/add', (req, res)=>{
+    new Project({
+        id: req.session.username,
+        kind: req.body.kind,
+        name: req.body.name,
+        date: req.body.date,
+        applyPoint: req.body.applyPoint,
+        finalPoint: 0,
+        remark: req.body.remark
+    }).save();
+    res.redirect(303, '/table');
+});
+
+//处理总表
+router.get('/table', (req, res)=>{
+    if(req.session.username == undefined){
+        return res.redirect(303, '/signin');
+    }
+    Project.find({'id': req.session.username}, (err, projects)=>{
+        Student.find({'id': req.session.username}, (err, students)=>{
+            res.render('table', {
+                title: '个人素质拓展学分总表',
+                student: students[0],
+                projects: projects  //数组
+            });
+        });
+    });
+})
 
 
 module.exports = router;

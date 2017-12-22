@@ -16,6 +16,7 @@ const ProjectSchema = new Schema({
   id: String,
   kind: String,
   name: String,
+  date: String,
   applyPoint: Number,
   finalPoint: Number,
   remark: String

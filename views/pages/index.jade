@@ -14,8 +14,8 @@ block content
         .col-md-4.col-xs-0
           img.img-responsive.gif(src="/imgs/xiaoxun.gif")
     br
+    
     .container
-
       .sbox
         .sbox1
           h3 当前用户>>#{user.name}
@@ -28,9 +28,9 @@ block content
             h4 学院：#{user.faculty}            
             h4 专业：#{user.major}
         .sbox3
-          button.sheet 素质拓展学分表
-          button.alter 修改入口
-          button.add 添加入口
-      
+          a.btn.btn-primary(href="http://localhost:3000/table") 素质拓展学分表
+          a.btn.btn-primary(href="http://localhost:3000/add") 修改入口
+          a.btn.btn-primary(href="http://localhost:3000/add") 添加入口
+          
     script(src="/libs/jquery/dist/jquery.min.js")
     script(src="/js/signout.js")
