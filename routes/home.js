@@ -12,7 +12,10 @@ router.get('/', function(req, res, next) {
         res.render('index', { 
             title: '个人主页',
             user: {
-                
+                name: '王杰',
+                gender: '女',
+                id: '123',
+                major: '大类'
             }
         });
     }
