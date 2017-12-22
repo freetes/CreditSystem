@@ -11,7 +11,7 @@ var users = require('./routes/users');
 var home = require('./routes/home');
 
 var app = express();
-
+//hahahahah
 // view engine setup
 app.set('views', path.join(__dirname, 'views/pages'));
 app.set('view engine', 'jade');
