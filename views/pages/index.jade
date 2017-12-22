@@ -1,24 +1,35 @@
 extends ../layout
 
 block content
-  link(rel="stylesheet", href="/css/index.css")
+  link(rel="stylesheet", href="/css/signin.css")
   
-  body.box
-    h1= title
-    .sbox
-      .sbox1
-        h3 当前用户>>#{user.name}
-        button.quit 注销
-      .sbox2
-        .sbox2_1
-          h4 姓名：#{user.name}
-          h4 性别：#{user.gender}
-          h4 学号：#{user.id}
-          h4 专业：#{user.major}
-      .sbox3
-        button.sheet 素质拓展学分表
-        button.alter 修改入口
-        button.add 添加入口
-    
+  body
+    .container-fluid.mainLogo
+      .container
+        .col-md-8.col-xs-0
+          .col-md-3.col-xs-4
+            img.img-responsive(src="/imgs/logo.png")
+          .col-md-9.col-xs-8
+            h3.text-left.title= title
+        .col-md-4.col-xs-0
+          img.img-responsive.gif(src="/imgs/xiaoxun.gif")
+    br
+    .container
+
+      .sbox
+        .sbox1
+          h3 当前用户>>#{user.name}
+          button.quit 注销
+        .sbox2
+          .sbox2_1
+            h4 姓名：#{user.name}
+            h4 性别：#{user.gender}
+            h4 学号：#{user.id}
+            h4 专业：#{user.major}
+        .sbox3
+          button.sheet 素质拓展学分表
+          button.alter 修改入口
+          button.add 添加入口
+      
     script(src="/libs/jquery/dist/jquery.min.js")
     script(src="/js/signout.js")
