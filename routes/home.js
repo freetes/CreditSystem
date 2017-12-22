@@ -9,7 +9,12 @@ router.get('/', function(req, res, next) {
         res.redirect('/');
     }
     else{
-        res.render('index', { title: '个人主页' });
+        res.render('index', { 
+            title: '个人主页',
+            user: {
+                
+            }
+        });
     }
  
 });
