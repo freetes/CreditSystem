@@ -1,0 +1,88 @@
+
+extends ../layout
+
+block content    
+    style.
+      .box{
+      width: 900px;
+      height: 550px;
+      position: absolute;
+      right: 235px;
+      top: 250px;
+      }
+      .title2 {
+      position: absolute;
+      right: 350px;
+      top: -70px;
+      }
+  body
+    .container-fluid.mainLogo
+      .container
+        .col-md-8.col-xs-0
+          .col-md-3.col-xs-4
+            img.img-responsive(src='/imgs/logo.png')
+          .col-md-9.col-xs-8
+            h3.text-left.title 武汉轻工大学素质学分管理系统
+        .col-md-4.col-xs-0
+          img.img-responsive.gif(src='/imgs/xiaoxun.gif')
+    br
+    .box
+      h2.title2 个人素质拓展学分总表
+      .table-responsive
+        table.table.table-condensed
+          tr.warning
+            td.warning 姓名：
+            td.warning 王杰
+            td.warning 性别：
+            td.warning 女
+            td.warning 学号：
+            td.warning 1605110144
+          tr.warning
+            td.warning 学院：
+            td.warning 数学与计算机学院
+            td.warning
+            td.warning
+            td.warning 专业及班级：
+            td.warning 大类1601班
+          tr.active
+            td.active 申请日期
+            td.active 项目分类
+            td.active 项目名
+            td.active 申请分值
+            td.active 认定分值
+            td.active 备注
+          tr.active
+            td.danger 2017.12 
+            td.danger 自主创新类 
+            td.danger c语言竞赛 
+            td.danger 1 
+            td.danger
+            td.danger 院级三等奖 
+          tr.active
+            td.info 2017.12 
+            td.info 自主创新类 
+            td.info c语言竞赛 
+            td.info 1 
+            td.info
+            td.info 院级三等奖 
+          tr.active
+            td.danger 2017.12 
+            td.danger 自主创新类 
+            td.danger c语言竞赛 
+            td.danger 1 
+            td.danger
+            td.danger 院级三等奖 
+          tr.active
+            td.info 2017.12 
+            td.info 自主创新类 
+            td.info c语言竞赛 
+            td.info 1 
+            td.info
+            td.info 院级三等奖 
+          tr.active
+            td.danger 2017.12 
+            td.danger 自主创新类 
+            td.danger c语言竞赛 
+            td.danger 1 
+            td.danger
+            td.danger 院级三等奖 
