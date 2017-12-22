@@ -43,7 +43,7 @@ Student.find((err, students)=>{
 });
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function(req, res) {
     if(req.session.username == undefined){
         res.redirect('/signin');
     }
@@ -57,6 +57,7 @@ router.get('/', function(req, res, next) {
     }
 });
 
+//处理注销
 router.post('/', (req, res)=>{
     delete req.session.username;
 
