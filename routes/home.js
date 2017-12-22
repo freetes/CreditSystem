@@ -4,9 +4,8 @@ var router = express.Router();
 /* GET home page. */
 
 router.get('/', function(req, res, next) {
-    console.log(req.session.username);
-    if(req.session.username==undefined){
-        res.redirect('/');
+    if(req.session.username == undefined){
+        res.redirect('/signin');
     }
     else{
         res.render('index', { 
@@ -19,7 +18,13 @@ router.get('/', function(req, res, next) {
             }
         });
     }
- 
+    
 });
+
+router.post('/', (req, res)=>{
+    delete req.session.username;
+
+    res.json(true);
+})
 
 module.exports = router;

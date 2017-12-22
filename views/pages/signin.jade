@@ -9,7 +9,7 @@ block content
       h1= title
       .msg= message
       .row
-        form(action='/', method='POST')
+        form(action='/signin', method='POST')
           h2.nameChina 账户：
           input.username(type='text', name='username')
           h2.passwordChina 密码：
