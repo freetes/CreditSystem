@@ -79,13 +79,18 @@ router.get('/add', (req, res)=>{
             title: '个人素质拓展学分添加',
             user: student[0],
             project: {
-                
+                _id: '',
+                name: '',
+                kind: '',
+                date: '',
+                applyPoint: '',
+                remark: ''
             }            
         });
     });
 })
 router.post('/add', (req, res)=>{
-    if(req.body._id == undefined){
+    if(req.body._id == ''){
         new Project({
             id: req.session.username,
             kind: req.body.kind,
@@ -94,15 +99,33 @@ router.post('/add', (req, res)=>{
             applyPoint: req.body.applyPoint,
             finalPoint: 0,
             remark: req.body.remark
-        }).save();
-        return res.redirect(303, '/table');
+        }).save(err=>{
+            return res.redirect(303, '/table');
+        });
     }
     else{
-
+        Project.findByIdAndUpdate(req.body._id, {
+            kind: req.body.kind,
+            name: req.body.name,
+            date: req.body.date,
+            applyPoint: req.body.applyPoint,
+            finalPoint: 0,
+            remark: req.body.remark
+        }, err=>{
+            return res.redirect(303, '/table');        
+        });
     }
 });
 router.post('/change', (req, res)=>{
-
+    Student.find({'id': req.session.username}, (err, student)=>{
+        Project.findById(req.body._id, (err, project)=>{
+            res.render('add', { 
+                title: '个人素质拓展学分添加',
+                user: student[0],
+                project: project
+            });
+        })
+    });
 });
 //处理总表
 router.get('/table', (req, res)=>{
