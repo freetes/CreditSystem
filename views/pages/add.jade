@@ -8,7 +8,8 @@ block content
       .container
         .col-md-8.col-xs-0
           .col-md-3.col-xs-4
-            img.img-responsive(src='/imgs/logo.png')
+            a(href="http://localhost:3000")
+              img.img-responsive(src='/imgs/logo.png')
           .col-md-9.col-xs-8
             h3.text-left.title=title
         .col-md-4.col-xs-0
@@ -16,25 +17,25 @@ block content
     br
     .container
       .row
-        form(action="/add", method="POST")
-          .input-group.input-group-lg
-            span.input-group-addon 申请日期
-            input.form-control(type='text', name="date", placeholder='date', aria-describedby='sizing-addon2')
+        form.form-horizontal(action="/add", method="POST")
+          .input-group.input-group-lg.col-md-12
+            .input-group-addon 申请日期
+            input.col-md-10.form-control(type='text', name="date", placeholder='date')
           br
-          .input-group.input-group-lg
-            span.input-group-addon 项目分类
-            input.form-control(type='text', name="kind", placeholder='item_class', aria-describedby='sizing-addon2')
+          .input-group.input-group-lg.col-md-12
+            .input-group-addon 项目分类
+            input.col-md-10.form-control(type='text', name="kind", placeholder='item_class')
           br
-          .input-group.input-group-lg
-            span.input-group-addon 项目名
-            input.form-control(type='text', name="name", placeholder='item_name', aria-describedby='sizing-addon2')
+          .input-group.input-group-lg.col-md-12
+            .input-group-addon 项目内容
+            input.col-md-10.form-control(type='text', name="name", placeholder='item_name')
           br
-          .input-group.input-group-lg
-            span.input-group-addon 申请分值
-            input.form-control(type='text', name="applyPoint", placeholder='apply_value', aria-describedby='sizing-addon2')
+          .input-group.input-group-lg.col-md-12
+            .input-group-addon 申请分值
+            input.col-md-10.form-control(type='text', name="applyPoint", placeholder='apply_value')
           br
-          .input-group.input-group-lg
-            span.input-group-addon 备注
-            input.form-control(type='text', name="remark", placeholder='remarks', aria-describedby='sizing-addon2')
+          .input-group.input-group-lg.col-md-12
+            .input-group-addon 具体说明
+            input.col-md-10.form-control(type='text', name="remark", placeholder='remarks')
           br
-          button.btn.btn-primary 录入
+          button.btn.btn-lg.btn-primary.btn-block 录入

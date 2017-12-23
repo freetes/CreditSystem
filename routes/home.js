@@ -52,10 +52,13 @@ router.get('/', function(req, res) {
         return res.redirect(303, '/signin');
     }
     Student.find({'id': req.session.username}, (err, student)=>{
-        res.render('index', { 
-            title: '个人主页',
-            user: student[0]
-        });
+        Project.find({'id': student[0].id}, (err, projects)=>{
+            res.render('index', { 
+                title: '个人主页',
+                user: student[0],
+                projects: projects
+            });
+        })
     });
 });
 

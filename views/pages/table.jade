@@ -8,7 +8,8 @@ block content
       .container
         .col-md-8.col-xs-0
           .col-md-3.col-xs-4
-            img.img-responsive(src='/imgs/logo.png')
+            a(href="http://localhost:3000")
+              img.img-responsive(src='/imgs/logo.png')
           .col-md-9.col-xs-8
             h3.text-left.title= title
         .col-md-4.col-xs-0
@@ -28,12 +29,11 @@ block content
             tr.warning
               td.warning 学院：
               td.warning=student.faculty
-              td.warning
-              td.warning
               td.warning 专业及班级：
               td.warning=student.major
+              td.warning
+              td.warning              
             tr.active
-              td.active 隐藏id
               td.active 申请日期
               td.active 项目分类
               td.active 项目名
@@ -42,11 +42,11 @@ block content
               td.active 备注
             each item in projects
               tr.active
-                td.danger=item._id
+                td.danger.hidden=item._id
                 td.danger=item.date
                 td.danger=item.kind
                 td.danger=item.name
                 td.danger=item.applyPoint
-                td.danger
+                td.danger 0
                 td.danger=item.remark
             

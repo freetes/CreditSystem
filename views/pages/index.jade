@@ -8,7 +8,8 @@ block content
       .container
         .col-md-8.col-xs-0
           .col-md-3.col-xs-4
-            img.img-responsive(src="/imgs/logo.png")
+            a(href="http://localhost:3000")
+              img.img-responsive(src="/imgs/logo.png")
           .col-md-9.col-xs-8
             h3.text-left.title= title
         .col-md-4.col-xs-0
@@ -16,21 +17,33 @@ block content
     br
     
     .container
-      .sbox
-        .sbox1
-          h3 当前用户>>#{user.name}
-          button.quit 注销
-        .sbox2
-          .sbox2_1
-            h4 姓名：#{user.name}
-            h4 性别：#{user.gender}
-            h4 学号：#{user.id}
-            h4 学院：#{user.faculty}            
-            h4 专业：#{user.major}
-        .sbox3
-          a.btn.btn-primary(href="http://localhost:3000/table") 素质拓展学分表
-          a.btn.btn-primary(href="http://localhost:3000/add") 修改入口
-          a.btn.btn-primary(href="http://localhost:3000/add") 添加入口
+      .row
+        h3 当前用户>>#{user.name}
+        button.quit 注销
+      .row
+        h4 姓名：#{user.name}
+        h4 性别：#{user.gender}
+        h4 学号：#{user.id}
+        h4 学院：#{user.faculty}            
+        h4 专业：#{user.major}
+      
+      .row
+        a.btn.btn-primary(href="http://localhost:3000/table") 素质拓展学分表
+        a.btn.btn-primary(href="http://localhost:3000/add") 修改入口
+        a.btn.btn-primary(href="http://localhost:3000/add") 添加入口
+
+      .row
+        h3 历史项目
+        table.table.table-condensed
+          each item in projects
+            tr.active
+              td.danger.hidden=item._id
+              td.danger=item.date
+              td.danger=item.kind
+              td.danger=item.name
+              td.danger=item.applyPoint
+              td.danger 0
+              td.danger=item.remark
           
     script(src="/libs/jquery/dist/jquery.min.js")
     script(src="/js/signout.js")
