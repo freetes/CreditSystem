@@ -77,23 +77,33 @@ router.get('/add', (req, res)=>{
     Student.find({'id': req.session.username}, (err, student)=>{
         res.render('add', { 
             title: '个人素质拓展学分添加',
-            user: student[0]
+            user: student[0],
+            project: {
+                
+            }            
         });
     });
 })
 router.post('/add', (req, res)=>{
-    new Project({
-        id: req.session.username,
-        kind: req.body.kind,
-        name: req.body.name,
-        date: req.body.date,
-        applyPoint: req.body.applyPoint,
-        finalPoint: 0,
-        remark: req.body.remark
-    }).save();
-    res.redirect(303, '/table');
-});
+    if(req.body._id == undefined){
+        new Project({
+            id: req.session.username,
+            kind: req.body.kind,
+            name: req.body.name,
+            date: req.body.date,
+            applyPoint: req.body.applyPoint,
+            finalPoint: 0,
+            remark: req.body.remark
+        }).save();
+        return res.redirect(303, '/table');
+    }
+    else{
 
+    }
+});
+router.post('/change', (req, res)=>{
+
+});
 //处理总表
 router.get('/table', (req, res)=>{
     if(req.session.username == undefined){

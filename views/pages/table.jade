@@ -42,11 +42,14 @@ block content
               td.active 备注
             each item in projects
               tr.active
-                td.danger.hidden=item._id
                 td.danger=item.date
                 td.danger=item.kind
                 td.danger=item.name
                 td.danger=item.applyPoint
                 td.danger 0
                 td.danger=item.remark
-            
+                td
+                  form(action="/change", method="POST")
+                    input.hidden(type="text", name="_id")= item._id
+                    button.btn.btn-danger 修改
+              
