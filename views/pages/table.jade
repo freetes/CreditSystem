@@ -50,6 +50,7 @@ block content
                 td.danger=item.remark
                 td
                   form(action="/change", method="POST")
-                    input.hidden(type="text", name="_id")= item._id
-                    button.btn.btn-danger 修改
+                    input.hidden(type="text", name="_id")= item._id                    
+                    button.btn.btn-warning 修改
+                    button.btn.btn-danger 删除 
               
