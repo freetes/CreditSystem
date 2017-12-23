@@ -2,121 +2,71 @@ extends ../layout
 
 block content
   link(rel="stylesheet", href="/css/signin.css")
+  link(rel="stylesheet", href="/css/index.css")
   
-  style(type='text/css').
-      .sbox {
-      width: 900px;
-      height: 550px;
-      background-color: #B0C4DE;
-      position: absolute;
-      right: 235px;
-      top: 130px;
-      }
-      .sbox1 {
-      width: 850px;
-      height: 50px;
-      background:white;
-      position: absolute;
-      right: 30px;
-      top: 15px;
-      }
-      .h3tit {
-      width: 600px;
-      color: #000000;
-      position: absolute;
-      right: 240px;
-      top: -7px;
-      }
-      .quit {
-      width: 60px;
-      height: 35px;
-      position: absolute;
-      right: 20px;
-      top: 10px;
-      }
-      .sbox2 {
-      width: 420px;
-      height: 370px;
-      background:white;
-      position: absolute;
-      right: 440px;
-      top: 90px;
-      }
-      .sbox2_1 {
-      width: 380px;
-      height: 370px;
-      background:white;
-      }
-      h4 {
-      width: 400px;
-      height: 60px;
-      color: black;
-      }
-      .sbox3 {
-      width: 360px;
-      height: 430px;
-      background: white;
-      position: absolute;
-      right: 30px;
-      top: 90px;
-      }
   body
     .container-fluid.mainLogo
       .container
         .col-md-8.col-xs-0
           .col-md-3.col-xs-4
-            a(href="http://localhost:3000")
-              img.img-responsive(src="/imgs/logo.png")
+            img.img-responsive(src='/imgs/logo.png')
           .col-md-9.col-xs-8
-            h3.text-left.title= title
+            h3.text-left.title 武汉轻工大学素质学分管理系统
         .col-md-4.col-xs-0
-          img.img-responsive.gif(src="/imgs/xiaoxun.gif")
-    br
-    .sbox
-      .sbox1
-        h3.h3tit 当前用户>>#{user.name}
-        button.btn.btn-info.quit(type='button')
-          | 注销
-      .sbox2
-        .row
-          .sbox2_1.col-md-12
-            h4 姓名：#{user.name}
-            h4 性别：#{user.gender}
-            h4 学号：#{user.id}
-            h4 专业：#{user.major}
-            h4 院系：#{user.faculty}
-        br
-        .row
+          img.img-responsive.gif(src='/imgs/xiaoxun.gif')
+      .row
+        .col-md-2
+        .col-md-8.sbox
+          br
+          .col-md-12.white
+            h3 当前用户>>#{user.name}
+            button.btn.btn-info.quit(type='button')
+              | 注销
+          .col-nd-12.puple
           .col-md-12
-            a.btn.btn-primary(href="http://localhost:3000/table") 素质拓展学分表
-            a.btn.btn-primary(href="http://localhost:3000/add") 修改入口
-            a.btn.btn-primary(href="http://localhost:3000/add") 添加入口
-      .sbox3
-        .row
-          .col-md-12
-            h4 历史项目:
-        div
-          .col-md-1
-          .col-md-11
             .row
-              .col-md-12
-                table.table.table-condensed 
-                  tr.info
-                    td.info 名称\编号
-                    td.info 时间：
-                    td.info 项目类别：
-                    td.info 项目名称：
-                    td.info 申请学分：
-                    td.info 备注：
-                  each item in projects   
-                    tr.active
-                      td.info.hidden=item._id
-                      td.info=item.date
-                      td.info=item.kind
-                      td.info=item.name
-                      td.info=item.applyPoint
-                      td.info 0
-                      td.info=item.remark
+              .col-md-5
+                .row
+                  .col-md-1
+                  .col-md-11.white
+                    h4 姓名：#{user.name}
+                    h4 性别：#{user.gender}
+                    h4 学号：#{user.id}
+                    h4 专业：#{user.major}
+                    h4 院系：#{user.faculty}
+                .col-nd-12.puple
+                .row
+                  .col-md-12
+                    a.btn.btn-primary(href="http://localhost:3000/table") 素质拓展学分表
+                    a.btn.btn-primary(href="http://localhost:3000/add") 修改入口
+                    a.btn.btn-primary(href="http://localhost:3000/add") 添加入口
+              .col-md-7
+                .row
+                  .col-md-1
+                  .col-md-11.whiteTwo
+                    .col-md-12.whiteThree
+                    .row
+                      .col-md-12
+                        h4 历史项目:
+                        table.table.table-condensed 
+                          tr.info
+                            td.info 名称\编号
+                            td.info 时间：
+                            td.info 项目类别：
+                            td.info 项目名称：
+                            td.info 申请学分：
+                            td.info 备注：
+                          each item in projects   
+                            tr.active
+                              td.info.hidden=item._id
+                              td.info=item.date
+                              td.info=item.kind
+                              td.info=item.name
+                              td.info=item.applyPoint
+                              td.info 0
+                              td.info=item.remark
+        .col-md-2
+
             
     script(src="/libs/jquery/dist/jquery.min.js")
     script(src="/js/signout.js")
