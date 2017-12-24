@@ -51,7 +51,7 @@ block content
                 td
                   form(action="/change", method="POST")
                     input.hidden(type="text", name="_id", value="#{item._id}")
-                    button.btn.btn-danger 修改
+                    button.btn.btn-warning 修改
                   button.btn.btn-danger.delete(value="#{item._id}", onclick="deleteIt(this)") 删除
 
     script(src="/libs/jquery/dist/jquery.min.js")

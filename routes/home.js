@@ -82,7 +82,7 @@ router.get('/add', (req, res)=>{
     }
     Student.find({'id': req.session.username}, (err, student)=>{
         res.render('add', { 
-            title: '个人素质拓展学分添加',
+            title: '个人素质拓展学分项目添加',
             user: student[0],
             project: {
                 _id: '',
@@ -126,7 +126,7 @@ router.post('/change', (req, res)=>{
     Student.find({'id': req.session.username}, (err, student)=>{
         Project.findById(req.body._id, (err, project)=>{
             res.render('add', { 
-                title: '个人素质拓展学分添加',
+                title: '个人素质拓展学分项目修改',
                 user: student[0],
                 project: project
             });

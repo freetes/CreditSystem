@@ -2,7 +2,6 @@ extends ../layout
 
 block content
   link(rel="stylesheet", href="/css/signin.css")
-  link(rel="stylesheet", href="/css/index.css")
   
   body
     .container-fluid.mainLogo
@@ -14,60 +13,61 @@ block content
             h3.text-left.title 武汉轻工大学素质学分管理系统
         .col-md-4.col-xs-0
           img.img-responsive.gif(src='/imgs/xiaoxun.gif')
+    br
     .container
       .row
-        .col-md-2
-        .col-md-8.sbox
-          br
-          .col-md-12.white
-            h3.fountstyle 当前用户>>#{user.name}
-            button.btn.btn-info.quit(type='button')
-              | 注销
-          .col-nd-12.puple1
+        .col-md-9
           .col-md-12
-            .row
-              .col-md-5
-                .row                  
-                  .col-md-11.white
-                    h4 姓名：#{user.name}
-                    h4 性别：#{user.gender}
-                    h4 学号：#{user.id}
-                    h4 专业：#{user.major}
-                    h4 院系：#{user.faculty}
-                  .col-md-1
-                .col-nd-12.puple2
-                .row
-                  .col-md-6
-                    a.btn.btn-primary.btn-info(href="http://localhost:3000/table") 素质拓展学分表
-                  .col-md-6
-                    a.btn.btn-primary.btn-info(href="http://localhost:3000/add") 添加入口
-              .col-md-7
-                .row
-                  .col-md-1
-                  .col-md-11.whiteTwo
-                    .col-md-12.whiteThree
-                    .row
-                      .col-md-12
-                        h4 历史项目:
-                        table.table.table-condensed 
-                          tr.info
-                            td.info 名称\编号
-                            td.info 时间：
-                            td.info 项目类别：
-                            td.info 项目名称：
-                            td.info 申请学分：
-                            td.info 备注：
-                          each item in projects   
-                            tr.active
-                              td.info.hidden=item._id
-                              td.info=item.date
-                              td.info=item.kind
-                              td.info=item.name
-                              td.info=item.applyPoint
-                              td.info 0
-                              td.info=item.remark
-        .col-md-2
+            .panel.panel-primary
+              .panel-heading(style="background-color:#1295d8")
+                h4 个人信息
+              .panel-body
+                p 姓名：#{user.name}
+                p 性别：#{user.gender}
+                p 学号：#{user.id}
+                p 专业：#{user.major}
+                p 院系：#{user.faculty}
+           
+          br
+          .col-md-12
+            .panel.panel-primary
+              .panel-heading(style="background-color:#1295d8")
+                h4 最新项目 
+                  small(style="color: lightgray") 最新申请的三个项目
+              .panel-body
+                -if (projects.length==0)
+                  .alert.alert-warning 无申请项目
+                -else
+                  table.table.table-bordered
+                    tr
+                      td 时间：
+                      td 项目类别：
+                      td 项目名称：
+                      td 申请学分：
+                      td 认定学分：
+                      td 备注：
+                    -var length = projects.length
+                    -for(var i=length-1;i>=length-3&&i>=0;i--) {
+                      tr
+                        td.hidden= projects[i]._id
+                        td= projects[i].date
+                        td= projects[i].kind
+                        td= projects[i].name
+                        td= projects[i].applyPoint
+                        td 
+                        td= projects[i].remark
+                    -}
+                      
+        .col-md-3
+          .panel.panel-primary
+            .panel-heading(style="background-color:#1295d8")
+              h4 功能按钮
+            .panel-body
+              a.btn.btn-primary.btn-block(href="http://localhost:3000/add") 添加新项目
+              a.btn.btn-primary.btn-block(href="http://localhost:3000/table") 查看总表            
+              button.btn.btn-primary.btn-block.quit(type='button') 注销
 
-            
+
+
     script(src="/libs/jquery/dist/jquery.min.js")
     script(src="/js/signout.js")
