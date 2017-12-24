@@ -10,7 +10,7 @@ block content
           .col-md-3.col-xs-4
             img.img-responsive(src='/imgs/logo.png')
           .col-md-9.col-xs-8
-            h3.text-left.title 武汉轻工大学素质学分管理系统
+            h3.text-left.title= title
         .col-md-4.col-xs-0
           img.img-responsive.gif(src='/imgs/xiaoxun.gif')
     br
@@ -40,12 +40,12 @@ block content
                 -else
                   table.table.table-bordered
                     tr
-                      td 时间：
-                      td 项目类别：
-                      td 项目名称：
-                      td 申请学分：
-                      td 认定学分：
-                      td 备注：
+                      td 时间
+                      td 项目类别
+                      td 项目名称
+                      td 申请学分
+                      td 备注
+                      td 认定学分                      
                     -var length = projects.length
                     -for(var i=length-1;i>=length-3&&i>=0;i--) {
                       tr
@@ -54,8 +54,8 @@ block content
                         td= projects[i].kind
                         td= projects[i].name
                         td= projects[i].applyPoint
-                        td 
                         td= projects[i].remark
+                        td                         
                     -}
                       
         .col-md-3
