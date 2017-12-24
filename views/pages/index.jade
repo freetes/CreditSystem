@@ -20,7 +20,8 @@ block content
           .col-md-12
             .panel.panel-primary
               .panel-heading(style="background-color:#1295d8")
-                h4 个人信息
+                span.glyphicon.glyphicon-user(aria-hidden="true") 
+                span  个人信息
               .panel-body
                 p 姓名：#{user.name}
                 p 性别：#{user.gender}
@@ -32,8 +33,9 @@ block content
           .col-md-12
             .panel.panel-primary
               .panel-heading(style="background-color:#1295d8")
-                h4 最新项目 
-                  small(style="color: lightgray") 最新申请的三个项目
+                span.glyphicon.glyphicon-th-list(aria-hidden="true") 
+                span  最新项目
+                  small(style="color: lightgray")  最新申请的三个项目
               .panel-body
                 -if (projects.length==0)
                   .alert.alert-warning 无申请项目
@@ -61,11 +63,18 @@ block content
         .col-md-3
           .panel.panel-primary
             .panel-heading(style="background-color:#1295d8")
-              h4 功能按钮
+              span.glyphicon.glyphicon-unchecked(aria-hidden="true") 
+              span  功能按钮
             .panel-body
-              a.btn.btn-primary.btn-block(href="http://localhost:3000/add") 添加新项目
-              a.btn.btn-primary.btn-block(href="http://localhost:3000/table") 查看总表            
-              button.btn.btn-primary.btn-block.quit(type='button') 注销
+              a.btn.btn-primary.btn-block(href="http://localhost:3000/add")
+                span.glyphicon.glyphicon-plus-sign(aria-hidden="true")  
+                span  添加项目
+              a.btn.btn-primary.btn-block(href="http://localhost:3000/table")
+                span.glyphicon.glyphicon-list(aria-hidden="true")  
+                span  查看总表  
+              button.btn.btn-primary.btn-block.quit(type='button') 
+                span.glyphicon.glyphicon-log-out(aria-hidden="true")  
+                span  注销
 
 
 
