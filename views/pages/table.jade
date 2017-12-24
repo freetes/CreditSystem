@@ -18,7 +18,7 @@ block content
     .container
       .row
         .table-responsive
-          table.table.table-condensed
+          table.table.table-condensed.table-hover
             tr.warning
               td.warning 姓名：
               td.warning=student.name
@@ -26,13 +26,16 @@ block content
               td.warning=student.gender
               td.warning 学号：
               td.warning=student.id
+              td.warning
             tr.warning
               td.warning 学院：
               td.warning=student.faculty
               td.warning 专业及班级：
               td.warning=student.major
               td.warning
-              td.warning              
+              td.warning  
+              td.warning
+          table.table.table-condensed.table-hover.table-bordered             
             tr.active
               td.active 申请日期
               td.active 项目分类
@@ -40,17 +43,21 @@ block content
               td.active 申请分值
               td.active 认定分值
               td.active 备注
+              td.active 操作
             each item in projects
-              tr.active
-                td.danger=item.date
-                td.danger=item.kind
-                td.danger=item.name
-                td.danger=item.applyPoint
-                td.danger 0
-                td.danger=item.remark
+              tr
+                td=item.date
+                td=item.kind
+                td=item.name
+                td=item.applyPoint
+                td 0
+                td=item.remark
                 td
                   form(action="/change", method="POST")
                     input.hidden(type="text", name="_id", value="#{item._id}")
-                    button.btn.btn-info 修改                
-                    button.btn.btn-danger 删除
+                    button.btn.btn-info 修改
+                    button.btn.btn-danger.delete(value="#{item._id}", onclick="deleteIt(this)") 删除
+
+    script(src="/libs/jquery/dist/jquery.min.js")
+    script(src="/js/delete.js")
               
