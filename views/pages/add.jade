@@ -21,30 +21,36 @@ block content
         form.form-horizontal(action="/add", method="POST")
           .input-group.input-group-lg.col-md-12
             .input-group-addon 申请日期
-            input.col-md-10.form-control(type='text', name="date", placeholder='date', value="#{project.date}")
+            input.col-md-10.form-control.date(type='text', name="date", value="#{project.date}", readonly)
           br
           .input-group.input-group-lg.col-md-12
             .input-group-addon 项目分类
-            select.col-md-10.form-control(type='text', name="kind", placeholder='kind', value="#{project.kind}")
-              option <请选择>
+            select.col-md-10.form-control(type='text', name="kind", value="#{project.kind}")
               option 自主学习类
               option 创新学分类
               option 养成体验类
-              option 其他养成体验类
-              option 新学分类
+              option 其他
           br
           .input-group.input-group-lg.col-md-12
             .input-group-addon 项目内容
-            input.col-md-10.form-control(type='text', name="name", placeholder='name', value="#{project.name}")
+            input.col-md-10.form-control(type='text', name="name", value="#{project.name}")
           br
           .input-group.input-group-lg.col-md-12
             .input-group-addon 申请分值
-            input.col-md-10.form-control(type='text', name="applyPoint", placeholder='applyPoint', value="#{project.applyPoint}")
+            input.col-md-10.form-control(type='text', name="applyPoint", value="#{project.applyPoint}")
           br
           .input-group.input-group-lg.col-md-12
             .input-group-addon 具体说明
-            input.col-md-10.form-control(type='text', name="remark", placeholder='remark', value="#{project.remark}")
+            input.col-md-10.form-control(type='text', name="remark", value="#{project.remark}")
           .input-group.input-group-lg.col-md-12.hidden
             input.col-md-10.form-control(type='text', name="_id", value="#{project._id}")
           br
           button.btn.btn-lg.btn-primary.btn-block 录入
+
+    script(src="/libs/jquery/dist/jquery.min.js")
+    script.
+      $(document).ready(()=>{
+        const myDate = new Date();
+        const nowDate = myDate.getFullYear() + '-' + (myDate.getMonth() + 1) + '-' + myDate.getDate() + ' ' + myDate.getHours() + ':' + myDate.getMinutes();
+        $(".date").val(nowDate);
+      })
