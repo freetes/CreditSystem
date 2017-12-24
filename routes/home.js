@@ -67,8 +67,14 @@ router.post('/', (req, res)=>{
     delete req.session.username;
 
     res.json(true);
-})
+});
 
+//处理删除
+router.post('/delete', (req, res)=>{
+    Project.remove({'_id': req.body.id}, (err)=>{
+        res.json(true);
+    })
+});
 //处理新增
 router.get('/add', (req, res)=>{
     if(req.session.username == undefined){
