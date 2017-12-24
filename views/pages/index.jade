@@ -20,26 +20,27 @@ block content
         .col-md-8.sbox
           br
           .col-md-12.white
-            h3 当前用户>>#{user.name}
+            h3.fountstyle 当前用户>>#{user.name}
             button.btn.btn-info.quit(type='button')
               | 注销
-          .col-nd-12.puple
+          .col-nd-12.puple1
           .col-md-12
             .row
               .col-md-5
-                .row
-                  .col-md-1
+                .row                  
                   .col-md-11.white
                     h4 姓名：#{user.name}
                     h4 性别：#{user.gender}
                     h4 学号：#{user.id}
                     h4 专业：#{user.major}
                     h4 院系：#{user.faculty}
-                .col-nd-12.puple
+                  .col-md-1
+                .col-nd-12.puple2
                 .row
-                  .col-md-12
-                    a.btn.btn-primary(href="http://localhost:3000/table") 素质拓展学分表
-                    a.btn.btn-primary(href="http://localhost:3000/add") 添加入口
+                  .col-md-6
+                    a.btn.btn-primary.btn-info(href="http://localhost:3000/table") 素质拓展学分表
+                  .col-md-6
+                    a.btn.btn-primary.btn-info(href="http://localhost:3000/add") 添加入口
               .col-md-7
                 .row
                   .col-md-1

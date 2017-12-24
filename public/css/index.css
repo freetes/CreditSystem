@@ -1,22 +1,26 @@
 
 .sbox {
 height: 600px;
-background-color: #B0C4DE;
+background-color: white;
 }
 .white {
-background-color: white;
+background-color: #87CEEB;
 }
 .whiteTwo {
-background-color: white;
+background-color: #87CEEB;
 height: 500px;
 }
 .whiteThree {
-background-color: white;
+background-color: #87CEEB;
 height: 40px;
 }
-.puple{
+.puple1{
 height: 70px;
-background-color: #B0C4DE;
+background-color: white;
+}
+.puple2{
+height: 40px;
+background-color: white;
 }
 .quit {
 width: 60px;
@@ -28,5 +32,9 @@ top: 10px;
 h4 {
 width: 400px;
 height: 60px;
-color: black;
+color:white;
+}
+.fountstyle {
+    color: white;
+    font-style:italic;
 }
