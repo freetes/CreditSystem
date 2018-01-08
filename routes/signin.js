@@ -26,6 +26,12 @@ router.post('/', (req, res)=>{
           res.redirect('/admin');
         }
       }
+      else{
+        res.render('signin',{
+          title: "登录页面",
+          message:"用户名或密码不正确，请重新输入！",
+        });
+      }
     }
     else{
       res.render('signin',{
