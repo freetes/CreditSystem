@@ -14,7 +14,25 @@ block content
         .col-md-4.col-xs-0.daidaidongdong
           img.img-responsive.gif(src='/imgs/xiaoxun.gif')
     br
+
     .container
+      .row
+        .form-inline
+          .form-group
+            select.form-control#find(type='text', name="kind", onclick="change()")
+              option 学生学号
+              option 学生姓名
+              option 项目类别
+          .form-group.searchBox(style="display: none")
+            input.form-control.searchInput(type="text")
+          .form-group.selectBox(style="display: none")
+            select.form-control#find(type='text', name="kind", onclick="change()")
+              option 自主学习类
+              option 创新学分类
+              option 养成体验类
+              option 其他
+          button.button.btn.btn-primary 查询
+        br
       .row
         .table-responsive
           table.table.table-condensed.table-hover
@@ -40,6 +58,7 @@ block content
                 td.warning 申请分值：#{item.applyPoint}
                 td.warning 认定分值：#{item.finalPoint}
                 td.warning 说明：#{item.remark}
-        
+      
 
     script(src="/libs/jquery/dist/jquery.min.js")
+    script(src="/js/search.js")
