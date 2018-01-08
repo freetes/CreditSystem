@@ -10,3 +10,5 @@ function change(){
     }
 }
 
+change();
+

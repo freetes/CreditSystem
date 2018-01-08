@@ -50,8 +50,10 @@ block content
         .table-responsive
           table.table.table-condensed.table-hover
             for item in projects
-              tr.warning
-                td.warning id：#{item.id}
+              tr.warning(value="#{item.id}")
+                for stu in students
+                  - if(stu.id==item.id)
+                      td.warning 姓名：#{stu.name}
                 td.warning 类别：#{item.kind}
                 td.warning 名称：#{item.name}
                 td.warning 日期：#{item.date}
