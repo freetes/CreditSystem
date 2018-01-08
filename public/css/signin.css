@@ -6,7 +6,6 @@ body{
   background-image: url("/imgs/background.png")
 }
 .title{
-  line-height: 100px;
   margin: 0;
   color: white;
 }

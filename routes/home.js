@@ -174,6 +174,7 @@ router.get('/admin', (req, res)=>{
     Project.find({}, (err, projects)=>{
         Student.find({'id': {$ne: req.session.username}}, (err, students)=>{
             res.render('admin', {
+                title: '管理员页面',
                 students: students,
                 projects: projects
             })
