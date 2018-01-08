@@ -1,0 +1,46 @@
+extends ../layout
+
+block content
+  link(rel="stylesheet", href="/css/signin.css")
+
+  body
+    .container-fluid.mainLogo
+      .container
+        .col-md-8.col-xs-0
+          .col-md-3.col-xs-4
+            a(href="http://localhost:3000")
+              img.img-responsive(src='/imgs/logo.png')
+          .col-md-9.col-xs-8
+            h3.text-left.title=title
+        .col-md-4.col-xs-0
+          img.img-responsive.gif(src='/imgs/xiaoxun.gif')
+    br
+    .container
+      .row
+        .table-responsive
+          table.table.table-condensed.table-hover
+            for item in students
+              tr.warning
+                td.warning 姓名：#{item.name}
+                td.warning 性别：#{item.gender}
+                td.warning 学号：#{item.id}
+                td.warning 密码：#{item.password}
+                td.warning 学院：#{item.faculty}
+                td.warning 专业：#{item.major}
+                td.warning 等级：#{item.level}
+
+      .row
+        .table-responsive
+          table.table.table-condensed.table-hover
+            for item in projects
+              tr.warning
+                td.warning id：#{item.id}
+                td.warning 类别：#{item.kind}
+                td.warning 名称：#{item.name}
+                td.warning 日期：#{item.date}
+                td.warning 申请分值：#{item.applyPoint}
+                td.warning 认定分值：#{item.finalPoint}
+                td.warning 说明：#{item.remark}
+        
+
+    script(src="/libs/jquery/dist/jquery.min.js")

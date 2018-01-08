@@ -24,7 +24,8 @@ Student.find((err, students)=>{
         name: '李爽',
         gender: '男',
         faculty: '数学与计算机学院',
-        major: '计算机大类1602班'
+        major: '计算机大类1602班',
+        level: 0
     }).save();
 
     new Student({
@@ -33,16 +34,29 @@ Student.find((err, students)=>{
         name: '马珩',
         gender: '男',
         faculty: '数学与计算机学院',
-        major: '计算机大类1602班'
+        major: '计算机大类1602班',
+        level: 0
     }).save();
 
     new Student({
-        id: 1605110200,
+        id: 1605110144,
         password: 1,
         name: '王杰',
         gender: '女',
         faculty: '数学与计算机学院',
-        major: '计算机大类1601班'
+        major: '计算机大类1601班',
+        level: 0
+    }).save();
+
+    // Admin
+    new Student({
+        id: 'qiyanshun',
+        password: 'qiyanshun',
+        name: '辅导员',
+        gender: '男',
+        faculty: '数学与计算机学院',
+        major: '辅导员',
+        level: 1
     }).save();
 });
 
@@ -52,13 +66,16 @@ router.get('/', function(req, res) {
         return res.redirect(303, '/signin');
     }
     Student.find({'id': req.session.username}, (err, student)=>{
-        Project.find({'id': student[0].id}, (err, projects)=>{
-            res.render('index', { 
-                title: '素质学分管理个人主页',
-                user: student[0],
-                projects: projects
-            });
-        })
+        if(student.level == 0){
+            Project.find({'id': student[0].id}, (err, projects)=>{
+                res.render('index', { 
+                    title: '素质学分管理个人主页',
+                    user: student[0],
+                    projects: projects
+                });
+            })
+        }
+        else res.redirect(303, '/admin');
     });
 });
 
@@ -147,7 +164,21 @@ router.get('/table', (req, res)=>{
             });
         });
     });
-})
+});
 
+// 处理管理员
+router.get('/admin', (req, res)=>{
+    if(req.session.username == undefined){
+        return res.redirect(303, '/signin');
+    }
+    Project.find({}, (err, projects)=>{
+        Student.find({'id': {$ne: req.session.username}}, (err, students)=>{
+            res.render('admin', {
+                students: students,
+                projects: projects
+            })
+        })
+    })
+});
 
 module.exports = router;

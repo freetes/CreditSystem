@@ -8,7 +8,8 @@ const StudentSchema = new Schema({
   name: String,
   gender: String,
   faculty: String,
-  major: String
+  major: String,
+  level: Number
 });
 
 //项目数据模式
