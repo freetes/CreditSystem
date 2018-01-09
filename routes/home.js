@@ -56,13 +56,18 @@ router.get('/', function(req, res) {
         return res.redirect(303, '/signin');
     }
     Student.find({'id': req.session.username}, (err, student)=>{
-        Project.find({'id': student[0].id}, (err, projects)=>{
-            res.render('index', { 
-                title: '素质学分管理个人主页',
-                user: student[0],
-                projects: projects
-            });
-        })
+        if(student[0].level==0){
+            Project.find({'id': student[0].id}, (err, projects)=>{
+                res.render('index', { 
+                    title: '素质学分管理个人主页',
+                    user: student[0],
+                    projects: projects
+                });
+            })
+        }
+        else{
+            res.redirect(303, '/admin')
+        }
     });
 });
 

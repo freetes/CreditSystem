@@ -19,55 +19,75 @@ block content
       .row
         .form-inline
           .form-group
-            select.form-control#find(type='text', name="kind", onclick="change()")
+            select.form-control#find(type='text', onclick="change()")
               option 学生学号
               option 学生姓名
               option 项目类别
           .form-group.searchBox(style="display: none")
-            input.form-control.searchInput(type="text")
+            input.form-control.searchInput#searchInput(type="text")
           .form-group.selectBox(style="display: none")
-            select.form-control#find(type='text', name="kind", onclick="change()")
-              option 自主学习类
+            select.form-control#searchKind(type='text')
+              option.firstOption 自主学习类
               option 创新学分类
               option 养成体验类
               option 其他
           button.button.btn.btn-primary.searchBtn 查询
+          button.button.btn.btn-danger.cleanBtn 重置
+          &nbsp;&nbsp;&nbsp;
+          button.button.btn.btn-warning.sortBtn 按时间排序
         br
-      .row
-        .table-responsive
-          table.table.table-condensed.table-hover
-            for item in students
-              tr.warning
-                td.warning 姓名：#{item.name}
-                td.warning 性别：#{item.gender}
-                td.warning 学号：#{item.id}
-                td.warning 密码：#{item.password}
-                td.warning 学院：#{item.faculty}
-                td.warning 专业：#{item.major}
-                td.warning 等级：#{item.level}
 
       .row
-        .table-responsive
-          table.table.table-condensed.table-hover.allTr
-            tr.allTr
-              td.primary 姓名
-              td.primary 类别
-              td.primary 名称
-              td.primary 日期
-              td.primary 申请分值
-              td.primary 认定分值
-              td.primary 说明
-            for item in projects
-              tr.warning(id="#{item.id}")
-                for stu in students
-                  - if(stu.id==item.id)
-                      td.warning #{stu.name}
-                td.warning #{item.kind}
-                td.warning #{item.name}
-                td.warning #{item.date}
-                td.warning #{item.applyPoint}
-                td.warning #{item.finalPoint}
-                td.warning #{item.remark}
+        .panel.panel-primary
+          .panel-heading(style="background-color:#1295d8")
+            span.glyphicon.glyphicon-th-list(aria-hidden="true") 
+            span  所有学生
+          .panel-body
+            -if (students.length==0)
+              .alert.alert-warning 无用户
+            -else
+              .table-responsive
+                table.table.table-condensed.table-hover
+                  for item in students
+                    tr.warning
+                      td.warning 姓名：#{item.name}
+                      td.warning 性别：#{item.gender}
+                      td.warning 学号：#{item.id}
+                      td.warning 密码：#{item.password}
+                      td.warning 学院：#{item.faculty}
+                      td.warning 专业：#{item.major}
+                      td.warning 等级：#{item.level}
+
+      .row
+        .panel.panel-primary
+          .panel-heading(style="background-color:#1295d8")
+            span.glyphicon.glyphicon-th-list(aria-hidden="true") 
+            span  所有项目
+          .panel-body
+            -if (projects.length==0)
+              .alert.alert-warning 暂无相关项目
+            -else
+              .table-responsive
+                table.table.table-condensed.table-hover
+                  tr.allTr
+                    td.primary 姓名
+                    td.primary 类别
+                    td.primary 名称
+                    td.primary 日期
+                    td.primary 申请分值
+                    td.primary 认定分值
+                    td.primary 说明
+                  for item in projects
+                    tr.warning(id="#{item.id}")
+                      for stu in students
+                        - if(stu.id==item.id)
+                            td.warning.stuName #{stu.name}
+                      td.warning.stuKind #{item.kind}
+                      td.warning #{item.name}
+                      td.warning #{item.date}
+                      td.warning #{item.applyPoint}
+                      td.warning #{item.finalPoint}
+                      td.warning #{item.remark}
       
 
     script(src="/libs/jquery/dist/jquery.min.js")
