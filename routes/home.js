@@ -29,16 +29,6 @@ Student.find((err, students)=>{
     }).save();
 
     new Student({
-        id: 1605110209,
-        password: 1,
-        name: '马珩',
-        gender: '男',
-        faculty: '数学与计算机学院',
-        major: '计算机大类1602班',
-        level: 0
-    }).save();
-
-    new Student({
         id: 1605110144,
         password: 1,
         name: '王杰',
@@ -66,16 +56,13 @@ router.get('/', function(req, res) {
         return res.redirect(303, '/signin');
     }
     Student.find({'id': req.session.username}, (err, student)=>{
-        if(student.level == 0){
-            Project.find({'id': student[0].id}, (err, projects)=>{
-                res.render('index', { 
-                    title: '素质学分管理个人主页',
-                    user: student[0],
-                    projects: projects
-                });
-            })
-        }
-        else res.redirect(303, '/admin');
+        Project.find({'id': student[0].id}, (err, projects)=>{
+            res.render('index', { 
+                title: '素质学分管理个人主页',
+                user: student[0],
+                projects: projects
+            });
+        })
     });
 });
 

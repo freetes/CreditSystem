@@ -12,3 +12,23 @@ function change(){
 
 change();
 
+$(".searchBtn").click(()=>{
+    if($("#find").val()=="学生学号"){
+        let getNum = $(".searchInput").val();
+        let allTr = $(".allTr").siblings();
+        for(let i of allTr){
+            if(i.id != getNum){
+                i.style.display = "none";
+            }
+            else
+                i.style.display = "block";
+        }
+    }
+    else if($("#find").val()=="学生姓名"){
+
+    }
+    else {
+
+    }
+});
+

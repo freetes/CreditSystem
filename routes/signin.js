@@ -17,26 +17,28 @@ router.post('/', (req, res)=>{
   Student.find({'id':req.body.username}, (err, student)=>{
     if(student.length!=0){
       if(student[0].password == req.body.userpassword){
+        console.log(student[0].level);
         if(student[0].level == 0){
+          console.log('I am here')
           req.session.username = req.body.username;
-          res.redirect('/');
+          return res.redirect('/');
         }
-        else {
+        else{
           req.session.username = req.body.username;         
-          res.redirect('/admin');
+          return res.redirect('/admin');
         }
       }
       else{
         res.render('signin',{
           title: "登录页面",
-          message:"用户名或密码不正确，请重新输入！",
+          message:"密码不正确，请重新输入！",
         });
       }
     }
     else{
       res.render('signin',{
         title: "登录页面",
-        message:"用户名或密码不正确，请重新输入！",
+        message:"用户名不存在，请重新输入！",
       });
     }
   })

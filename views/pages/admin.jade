@@ -31,7 +31,7 @@ block content
               option 创新学分类
               option 养成体验类
               option 其他
-          button.button.btn.btn-primary 查询
+          button.button.btn.btn-primary.searchBtn 查询
         br
       .row
         .table-responsive
@@ -48,18 +48,26 @@ block content
 
       .row
         .table-responsive
-          table.table.table-condensed.table-hover
+          table.table.table-condensed.table-hover.allTr
+            tr.allTr
+              td.primary 姓名
+              td.primary 类别
+              td.primary 名称
+              td.primary 日期
+              td.primary 申请分值
+              td.primary 认定分值
+              td.primary 说明
             for item in projects
-              tr.warning(value="#{item.id}")
+              tr.warning(id="#{item.id}")
                 for stu in students
                   - if(stu.id==item.id)
-                      td.warning 姓名：#{stu.name}
-                td.warning 类别：#{item.kind}
-                td.warning 名称：#{item.name}
-                td.warning 日期：#{item.date}
-                td.warning 申请分值：#{item.applyPoint}
-                td.warning 认定分值：#{item.finalPoint}
-                td.warning 说明：#{item.remark}
+                      td.warning #{stu.name}
+                td.warning #{item.kind}
+                td.warning #{item.name}
+                td.warning #{item.date}
+                td.warning #{item.applyPoint}
+                td.warning #{item.finalPoint}
+                td.warning #{item.remark}
       
 
     script(src="/libs/jquery/dist/jquery.min.js")
