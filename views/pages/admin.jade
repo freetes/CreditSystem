@@ -50,14 +50,14 @@ block content
               .table-responsive
                 table.table.table-condensed.table-hover
                   for item in students
-                    tr.warning
-                      td.warning 姓名：#{item.name}
-                      td.warning 性别：#{item.gender}
-                      td.warning 学号：#{item.id}
-                      td.warning 密码：#{item.password}
-                      td.warning 学院：#{item.faculty}
-                      td.warning 专业：#{item.major}
-                      td.warning 等级：#{item.level}
+                    tr.active
+                      td.active 姓名：#{item.name}
+                      td.active 性别：#{item.gender}
+                      td.active 学号：#{item.id}
+                      td.active 密码：#{item.password}
+                      td.active 学院：#{item.faculty}
+                      td.active 专业：#{item.major}
+                      td.active 等级：#{item.level}
 
       .row
         .panel.panel-primary
@@ -69,26 +69,26 @@ block content
               .alert.alert-warning 暂无相关项目
             -else
               .table-responsive
-                table.table.table-condensed.table-hover
-                  tr.allTr
-                    td.primary 姓名
-                    td.primary 类别
-                    td.primary 名称
-                    td.primary 日期
-                    td.primary 申请分值
-                    td.primary 认定分值
-                    td.primary 说明
+                table.table.table-condensed.table-hover.table-bordered
+                  tr.active.allTr
+                    td.active 姓名
+                    td.active 类别
+                    td.active 名称
+                    td.active 日期
+                    td.active 申请分值
+                    td.active 认定分值
+                    td.active 说明
                   for item in projects
-                    tr.warning(id="#{item.id}")
+                    tr(id="#{item.id}")
                       for stu in students
                         - if(stu.id==item.id)
-                            td.warning.stuName #{stu.name}
-                      td.warning.stuKind #{item.kind}
-                      td.warning #{item.name}
-                      td.warning #{item.date}
-                      td.warning #{item.applyPoint}
-                      td.warning #{item.finalPoint}
-                      td.warning #{item.remark}
+                            td.stuName #{stu.name}
+                      td.stuKind #{item.kind}
+                      td #{item.name}
+                      td #{item.date}
+                      td #{item.applyPoint}
+                      td #{item.finalPoint}
+                      td #{item.remark}
       
 
     script(src="/libs/jquery/dist/jquery.min.js")
