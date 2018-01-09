@@ -8,6 +8,8 @@ body{
 .title{
   margin: 0;
   color: white;
+  position: absolute;
+  top: 15px;
 }
 .gif{
   margin-top: 7.5px;
