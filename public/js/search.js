@@ -18,6 +18,7 @@ $(".searchBtn").click(()=>{
         let getInfo = $(".searchInput").val();
         for(let i of $(".stuId")){
             if(i.textContent==getInfo){
+                
                 i.parentNode.style.display = "table-row";
             }
             else{
