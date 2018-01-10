@@ -17,7 +17,6 @@ router.post('/', (req, res)=>{
   Student.find({'id':req.body.username}, (err, student)=>{
     if(student.length!=0){
       if(student[0].password == req.body.userpassword){
-        console.log(student[0].level);
         if(student[0].level == 0){
           req.session.username = req.body.username;
           return res.redirect('/');

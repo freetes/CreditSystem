@@ -115,11 +115,9 @@ $(".cleanBtn").click(()=>{
     });
 
     // 交换tr
-    function changeSide(tr1, tr2){
-        for(let i=0; i< tr1.childNodes.length; i++){
-            let x = tr1.childNodes[i].textContent;
-            tr1.childNodes[i].textContent = tr2.childNodes[i].textContent
-            tr2.childNodes[i].textContent = x;
-        }        
+    function changeSide(tr1, tr2){      
+        let x = tr1.innerHTML;
+        tr1.innerHTML = tr2.innerHTML;
+        tr2.innerHTML = x;
     }
 }
