@@ -3,13 +3,11 @@ body{
 }
 .mainLogo{
   background-color: #1295D8;
-  background-image: url("/imgs/background.png")
+  background-image: url("/imgs/background.png");
 }
 .title{
   margin: 0;
   color: white;
-  position: absolute;
-  line-height: 100px;
 }
 .gif{
   margin-top: 7.5px;

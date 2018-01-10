@@ -1,11 +1,13 @@
 window.onload = ()=>{
-  if(window.innerWidth<500){
-    $(".daidaidongdong").hide();
+  $(".title").css("line-height", $(".mainLogo").css("height"));
+  if(window.innerWidth<600){
+    $(".daidaidongdong").css("display", "none");
   }
 }
 
 window.onresize = ()=>{
-  if(window.innerWidth<500){
-    $(".daidaidongdong").hide();
+  $(".title").css("line-height", $(".mainLogo").css("height"));
+  if(window.innerWidth<600){
+    $(".daidaidongdong").css("display", "none");
   }
 }
