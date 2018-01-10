@@ -17,47 +17,35 @@ block content
 
     .container
       .row
-        .form-inline
-          .form-group
-            select.form-control#find(type='text', onclick="change()")
-              option 学生学号
-              option 学生姓名
-              option 项目类别
-          .form-group.searchBox(style="display: none")
-            input.form-control.searchInput#searchInput(type="text")
-          .form-group.selectBox(style="display: none")
-            select.form-control#searchKind(type='text')
-              option.firstOption 自主学习类
-              option 创新学分类
-              option 养成体验类
-              option 其他
-          button.btn.btn-primary.searchBtn 查询
-          button.btn.btn-danger.cleanBtn 重置
-          &nbsp;&nbsp;&nbsp;
-          button.btn.btn-warning.sortBtn 按时间排序
-          button.btn.btn-danger.quit 注销
-        br
-
-      .row
         .panel.panel-primary
           .panel-heading(style="background-color:#1295d8")
             span.glyphicon.glyphicon-th-list(aria-hidden="true") 
-            span  所有学生
+            span  功能大全
           .panel-body
-            -if (students.length==0)
-              .alert.alert-warning 无用户
-            -else
-              .table-responsive
-                table.table.table-condensed.table-hover
-                  for item in students
-                    tr.active
-                      td.active 姓名：#{item.name}
-                      td.active 性别：#{item.gender}
-                      td.active 学号：#{item.id}
-                      td.active 密码：#{item.password}
-                      td.active 学院：#{item.faculty}
-                      td.active 专业：#{item.major}
-                      td.active 等级：#{item.level}
+            .form-inline 条件查询：
+              .form-group
+                select.form-control#findBox(type='text')
+                  option(selected) 学生学号
+                  option 学生姓名
+                  option 项目类别
+              .form-group.searchBox
+                input.form-control.searchInput#searchInput(type="text", placeholder="请输入学生学号")
+              .form-group.selectBox(style="display: none")
+                select.form-control#searchKind(type='text')
+                  option.firstOption 自主学习类
+                  option 创新学分类
+                  option 养成体验类
+                  option 其他
+              button.btn.btn-primary.searchBtn 查询
+              button.btn.btn-warning.cleanBtn 清除条件
+            br
+            .form-inline 条件排序：
+              button.btn.btn-primary.sortByIdBtn 按学号排序
+              button.btn.btn-primary.sortByTimeBtn 按时间排序
+              button.btn.btn-warning.resetSort 重置列表
+            br
+            .form-inline 其它：
+              button.btn.btn-danger.quit 注销
 
       .row
         .panel.panel-primary
@@ -69,26 +57,55 @@ block content
               .alert.alert-warning 暂无相关项目
             -else
               .table-responsive
-                table.table.table-condensed.table-hover.table-bordered
+                table.table.table-condensed.table-hover.table-bordered.projectsTable
                   tr.active.allTr
-                    td.active 姓名
-                    td.active 类别
-                    td.active 名称
-                    td.active 日期
-                    td.active 申请分值
-                    td.active 认定分值
-                    td.active 说明
+                    td 学号
+                    td 姓名
+                    td 项目类别
+                    td 项目简介
+                    td 申请日期
+                    td 申请分值
+                    td 认定分值
+                    td 备注说明
                   for item in projects
-                    tr(id="#{item.id}")
+                    tr
+                      td.stuId #{item.id}
                       for stu in students
                         - if(stu.id==item.id)
                             td.stuName #{stu.name}
-                      td.stuKind #{item.kind}
+                      td.proKind #{item.kind}
                       td #{item.name}
                       td #{item.date}
                       td #{item.applyPoint}
                       td #{item.finalPoint}
                       td #{item.remark}
+
+      .row
+        .panel.panel-primary
+          .panel-heading(style="background-color:#1295d8")
+            span.glyphicon.glyphicon-th-list(aria-hidden="true") 
+            span  所有学生
+          .panel-body
+            -if (students.length==0)
+              .alert.alert-warning 无用户
+            -else
+              .table-responsive
+                table.table.table-condensed.table-bordered
+                  tr.active
+                    td 学号                  
+                    td 姓名
+                    td 性别
+                    td 班级
+                    td 学院
+                    td 密码
+                  for item in students
+                    tr
+                      td #{item.id}
+                      td #{item.name}
+                      td #{item.gender}
+                      td #{item.major}
+                      td #{item.faculty}
+                      td #{item.password}
       
 
     script(src="/libs/jquery/dist/jquery.min.js")
