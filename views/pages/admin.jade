@@ -44,7 +44,9 @@ block content
               button.btn.btn-warning.resetSort 重置列表
             br
             .form-inline 导入导出：
-              input.form-control(type="file", id="excelInput")
+              input.form-control(type="file", id="excelInput", onchange="handleFile(this.files[0])")
+              button.btn.btn-primary.updateExcel 导入
+            br
             .form-inline 其它：
               button.btn.btn-danger.quit 注销
 
@@ -110,5 +112,7 @@ block content
       
 
     script(src="/libs/jquery/dist/jquery.min.js")
+    script(src="/libs/js-xlsx/dist/xlsx.full.min.js")
     script(src="/js/search.js")
+    script(src="/js/excel.js")    
     script(src="/js/signout.js")
