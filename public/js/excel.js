@@ -21,7 +21,7 @@ const handleFile = file=>{
       });
 
       const data = workBook.Sheets[workBook.SheetNames[0]];
-      console.log(data['A2'].v);
+      console.log(data);
     }
 
   }

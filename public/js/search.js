@@ -87,25 +87,10 @@ $(".cleanBtn").click(()=>{
         let pn = document.getElementsByClassName('allTr')[0].parentNode;
         for(let i=1; i<pn.childNodes.length; i++){
             for(let j=i+1; j<pn.childNodes.length; j++){
-                let time1 = pn.childNodes[i].childNodes[4].textContent,
-                    time2 = pn.childNodes[j].childNodes[4].textContent;
-                let t1 = {
-                    year: time1.split(' ')[0].split('-')[0],
-                    month: time1.split(' ')[0].split('-')[1],
-                    date: time1.split(' ')[0].split('-')[2],
-                    hour: time1.split(' ')[1].split(':')[0],
-                    minute: time1.split(' ')[1].split(':')[1],
-                },
-                    t2 = {
-                    year: time2.split(' ')[0].split('-')[0],
-                    month: time2.split(' ')[0].split('-')[1],
-                    date: time2.split(' ')[0].split('-')[2],
-                    hour: time2.split(' ')[1].split(':')[0],
-                    minute: time2.split(' ')[1].split(':')[1],
-                };
-                if(t1.year<t2.year||(t1.year==t2.year&&t1.month<t2.month)||(t1.year==t2.year&&t1.month==t2.month&&t1.date<t2.date)||(t1.year==t2&&t1.month==t2.month&&t1.date==t2.date&&t1.hour<t2.hour)||(t1.year==t2.year&&t1.month==t2.month&&t1.date==t2.date&&t1.hour==t2.hour&&t1.minute<t2.minute)){
-                    changeSide(pn.childNodes[i], pn.childNodes[j]);
-                }
+                let time1 = new Date(pn.childNodes[i].childNodes[4].textContent.replace('-', '/')),
+                    time2 = new Date(pn.childNodes[j].childNodes[4].textContent.replace('-', '/'));
+                if(time1<time2)
+                    changeSide(pn.childNodes[i], pn.childNodes[j]);                
             }
         }
     });

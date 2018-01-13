@@ -51,6 +51,6 @@ block content
     script.
       $(document).ready(()=>{
         const myDate = new Date();
-        const nowDate = myDate.getFullYear() + '-' + (myDate.getMonth() + 1) + '-' + myDate.getDate() + ' ' + myDate.getHours() + ':' + myDate.getMinutes();
+        const nowDate = myDate.getFullYear() + '-' + (myDate.getMonth() + 1) + '-' + myDate.getDate() + ' ' + myDate.getHours() + ':' + myDate.getMinutes() + ':' + myDate.getSeconds();
         $(".date").val(nowDate);
       })
