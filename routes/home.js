@@ -41,7 +41,7 @@ Student.find((err, students)=>{
     // Admin
     new Student({
         id: 'qiyanshun',
-        password: 'qiyanshun',
+        password: '1',
         name: '辅导员',
         gender: '男',
         faculty: '数学与计算机学院',
