@@ -6,13 +6,12 @@ block content
   body
     .container-fluid.mainLogo
       .container
-        .col-md-8.col-xs-0
-          .col-md-3.col-xs-4
-            a(href="http://localhost:3000")
-              img.img-responsive(src='/imgs/logo.png')
-          .col-md-9.col-xs-8
-            h3.text-left.title=title
-        .col-md-4.col-xs-0.daidaidongdong
+        .col-xs-0.col-md-2.mlogo
+          a(href="http://localhost:3000")
+            img.img-responsive.center-block.logo(src='/imgs/logo.png')
+        .col-xs-12.col-md-6
+          h3.title #{title}
+        .col-xs-0.col-md-4.daidaidongdong
           img.img-responsive.gif(src='/imgs/xiaoxun.gif')
     br
 

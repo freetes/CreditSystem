@@ -2,12 +2,18 @@ body{
   background-color: #fafafa;
 }
 .mainLogo{
+  height: 10rem;
   background-color: #1295D8;
   background-image: url("/imgs/background.png");
 }
+.mlogo{
+  height: 10rem;
+}
 .title{
+  line-height: 10rem;
   margin: 0;
   color: white;
+  overflow: hidden;
 }
 .gif{
   margin-top: 7.5px;

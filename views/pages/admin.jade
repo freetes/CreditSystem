@@ -6,9 +6,9 @@ block content
   body
     .container-fluid.mainLogo
       .container
-        .col-xs-4.col-md-2
-          img.img-responsive.logo(src='/imgs/logo.png')
-        .col-xs-8.col-md-6
+        .col-xs-0.col-md-2.mlogo
+          img.img-responsive.center-block.logo(src='/imgs/logo.png')
+        .col-xs-12.col-md-6
           h3.title #{title}
         .col-xs-0.col-md-4.daidaidongdong
           img.img-responsive.gif(src='/imgs/xiaoxun.gif')
@@ -109,6 +109,7 @@ block content
                       td #{item.major}
                       td #{item.faculty}
                       td #{item.password}
+      
       
 
     script(src="/libs/jquery/dist/jquery.min.js")
