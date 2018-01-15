@@ -59,7 +59,7 @@ router.get('/', function(req, res) {
         if(student[0].level==0){
             Project.find({'id': student[0].id}, (err, projects)=>{
                 res.render('index', { 
-                    title: '素质学分管理个人主页',
+                    title: '个人主页',
                     user: student[0],
                     projects: projects
                 });
@@ -91,7 +91,7 @@ router.get('/add', (req, res)=>{
     }
     Student.find({'id': req.session.username}, (err, student)=>{
         res.render('add', { 
-            title: '个人素质学分项目添加',
+            title: '个人项目添加页',
             user: student[0],
             project: {
                 _id: '',
@@ -135,7 +135,7 @@ router.post('/change', (req, res)=>{
     Student.find({'id': req.session.username}, (err, student)=>{
         Project.findById(req.body._id, (err, project)=>{
             res.render('add', { 
-                title: '个人素质学分项目修改',
+                title: '个人项目修改页',
                 user: student[0],
                 project: project
             });
@@ -150,7 +150,7 @@ router.get('/table', (req, res)=>{
     Project.find({'id': req.session.username}, (err, projects)=>{
         Student.find({'id': req.session.username}, (err, students)=>{
             res.render('table', {
-                title: '个人素质学分项目总表',
+                title: '个人项目总表页',
                 student: students[0],
                 projects: projects  //数组
             });
@@ -166,7 +166,7 @@ router.get('/admin', (req, res)=>{
     Project.find({}, (err, projects)=>{
         Student.find({'id': {$ne: req.session.username}}, (err, students)=>{
             res.render('admin', {
-                title: '管理员页面',
+                title: '管理员页',
                 students: students,
                 projects: projects
             })

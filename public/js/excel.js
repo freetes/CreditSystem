@@ -29,7 +29,7 @@ const handleFile = file=>{
       items.push(item);
     }
     console.log(items);
-
+    
     
   }
 };

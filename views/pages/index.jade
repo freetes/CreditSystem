@@ -17,48 +17,45 @@ block content
     .container
       .row
         .col-md-9
-          .col-md-12
-            .panel.panel-primary
-              .panel-heading(style="background-color:#1295d8")
-                span.glyphicon.glyphicon-user(aria-hidden="true") 
-                span  个人信息
-              .panel-body
-                p 姓名：#{user.name}
-                p 性别：#{user.gender}
-                p 学号：#{user.id}
-                p 专业：#{user.major}
-                p 院系：#{user.faculty}
+          .panel.panel-primary
+            .panel-heading(style="background-color:#1295d8")
+              span.glyphicon.glyphicon-user(aria-hidden="true") 
+              span  个人信息
+            .panel-body
+              p 姓名：#{user.name}
+              p 性别：#{user.gender}
+              p 学号：#{user.id}
+              p 专业：#{user.major}
+              p 院系：#{user.faculty}
            
-          br
-          .col-md-12
-            .panel.panel-primary
-              .panel-heading(style="background-color:#1295d8")
-                span.glyphicon.glyphicon-th-list(aria-hidden="true") 
-                span  最新项目
-                  small(style="color: lightgray")  最新申请的三个项目
-              .panel-body
-                -if (projects.length==0)
-                  .alert.alert-warning 无申请项目
-                -else
-                  table.table.table-bordered
+          .panel.panel-primary
+            .panel-heading(style="background-color:#1295d8")
+              span.glyphicon.glyphicon-th-list(aria-hidden="true") 
+              span  最新项目
+                small(style="color: lightgray")  最新申请的三个项目
+            .panel-body
+              -if (projects.length==0)
+                .alert.alert-warning 无申请项目
+              -else
+                table.table.table-bordered
+                  tr
+                    td 时间
+                    td 项目类别
+                    td 项目名称
+                    td 申请学分
+                    td 备注
+                    td 认定学分                      
+                  -var length = projects.length
+                  -for(var i=length-1;i>=length-3&&i>=0;i--) {
                     tr
-                      td 时间
-                      td 项目类别
-                      td 项目名称
-                      td 申请学分
-                      td 备注
-                      td 认定学分                      
-                    -var length = projects.length
-                    -for(var i=length-1;i>=length-3&&i>=0;i--) {
-                      tr
-                        td.hidden= projects[i]._id
-                        td= projects[i].date
-                        td= projects[i].kind
-                        td= projects[i].name
-                        td= projects[i].applyPoint
-                        td= projects[i].remark
-                        td                         
-                    -}
+                      td.hidden= projects[i]._id
+                      td= projects[i].date
+                      td= projects[i].kind
+                      td= projects[i].name
+                      td= projects[i].applyPoint
+                      td= projects[i].remark
+                      td                         
+                  -}
                       
         .col-md-3
           .panel.panel-primary
@@ -76,7 +73,7 @@ block content
                 span.glyphicon.glyphicon-log-out(aria-hidden="true")  
                 span  注销
 
-
+    #add
 
     script(src="/libs/jquery/dist/jquery.min.js")
     script(src="/js/signout.js")
